@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use GameAffinity\JuegoBundle\Entity\Juego;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\ContainerAwareEventManager; //nueva linea
 
 /**
  * Foto
