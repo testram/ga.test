@@ -1,0 +1,107 @@
+{# empty Twig template #}
+{% extends "JuegoBundle:Default:juego.html.twig" %}
+
+
+{% block ruta_ficha %}
+{{ path('ficha' , { 'juego' : juego.slug }) }}
+{% endblock %}
+
+{% block titulo %}
+{{ juego.nombre | capitalize }}
+{% endblock %}
+
+{% block ruta_criticas %}
+{{ path( 'review' , { 'juego' : juego.slug }) }}
+{% endblock %}
+
+{% block contenido %}
+{% for mensaje in app.session.flashbag.get('info')%}
+<div>
+    {{mensaje}}
+</div>
+{%endfor%}
+
+<section>
+    <p>{{juego.puntuacion | number_format}}</p>
+    <p>{{juego.votos| number_format }}</p>
+</section>
+<section>
+    <img src="{{juego.foto}}"></img>
+</section>
+<section>
+    <div class="ficha-item-clave">Año</span>
+        <div class="ficha-item-valor">{{ juego.fechaLanzamiento | date('Y')}}</div>
+</section>
+<section>
+    <div class="ficha-item-clave">Desarrollador</div>
+    <div class="ficha-item-valor">{{juego.desarrollador.nombre}}</div>
+</section>
+<section>
+    <div class="ficha-item-clave">Genero</div>
+    <div class="ficha-item-valor">
+        {% for genero in juego.categorias%}
+         {{genero.nombre |capitalize}}
+        {% if not loop.last%}
+        .
+        {%endif%}
+        {%endfor%}
+
+    </div>
+</section>
+<section>
+    <div class="ficha-item-clave">Critica</div>
+    <div class="ficha-item-valor">{{ juego.critica | raw }}</div>
+</section>
+<section>
+    <div class="ficha-item-clave">Desarrollador</div>
+    <div class="ficha-item-valor">{{juego.desarrollador.nombre}}</div>
+</section>
+
+<section>
+    <div class="ficha-item-clave">Sistema</div>
+     {%for sistema in juego.sistemas%}
+    <div class="ficha-item-valor">{{sistema.nombre}}</div>
+    {%endfor%}
+</section>
+
+
+{% for valoracion in valoraciones %}
+<section>
+    <article>
+        <header>
+            <h3><a href="{{ valoracion.usuario ? 
+path('usuario_perfil' , {'username' : valoracion.usuario.username } ) :
+path('portada_redaccion' , {'redactor' : valoracion.redactor.username }) }}">
+                    
+{{ valoracion.usuario ? valoracion.usuario.username : valoracion.redactor.username }}
+                </a>
+
+            </h3>
+            <div class="calificacion">
+
+            {{valoracion.calificacion | number_format }}
+
+            </div>
+            <h2>
+            {{ valoracion.titulo | capitalize }}
+            </h2>
+
+            <p>
+            {{valoracion.opinion | capitalize }}
+            </p>
+
+        </header>
+
+</section>
+{% else %}
+<section>
+    <div class="mensaje">
+        <p>
+            Aun no hay criticas para esta reseña
+        </p>
+    </div>
+</section>
+{% endfor %}
+{% endblock %}
+
+

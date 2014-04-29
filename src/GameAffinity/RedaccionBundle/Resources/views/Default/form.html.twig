@@ -1,0 +1,96 @@
+{# empty Twig template #}
+{% extends "::redaccion.html.twig" %}
+{% block javascripts %}
+{{parent()}}
+<script src="{{asset( 'bundles/redaccion/js/ckeditor/ckeditor.js')}}">
+
+</script>
+<script>
+    CKEDITOR.replace("gameaffinity_juegobundle_juegotype_critica");
+</script>
+{% endblock %}
+
+{% block stylesheets %}
+{{parent()}}
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+{% block article %}
+{{form_start(form)}}
+{{form_errors(form)}}
+<div>
+{{form_label(form.nombre , 'Nombre del Juego')}}
+    {{form_errors(form.nombre)}}
+    {{form_widget(form.nombre)}}
+</div>
+
+<div>
+    {{form_label(form.fecha_lanzamiento, 'Fecha de Lanzamiento')}}
+    {{form_errors(form.fecha_lanzamiento)}}
+    {{form_widget(form.fecha_lanzamiento)}}
+</div>
+<div>
+    {{form_label(form.desarrollador)}}
+    {{form_errors(form.desarrollador)}}
+    {{form_widget(form.desarrollador)}}
+</div>
+<div>
+    {{form_label(form.categorias)}}
+    {{form_errors(form.categorias)}}
+    {{form_widget(form.categorias)}}
+</div>
+
+<div>
+    {{form_label(form.sistemas)}}
+    {{form_errors(form.sistemas)}}
+    {{form_widget(form.sistemas)}}
+</div>
+<div>
+    {{form_label(form.puntuacion)}}
+    {{form_errors(form.puntuacion)}}
+    {{form_widget(form.puntuacion)}}
+</div>
+<div>
+    {{form_label(form.critica)}}
+    {{form_errors(form.critica)}}
+    <div>
+    {{form_widget(form.critica , {'attr':{ 'cols' :'80' , 'rows':'10'}})}}
+    </div>
+</div>
+<div>
+    {{form_label(form.fotosSecundarias, 'fotos secundarias (opcionales)')}}
+    {{form_errors(form.fotosSecundarias)}}
+    {{form_widget(form.fotosSecundarias.vars.prototype | e) }}
+</div>
+
+{{form_end(form)}}
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

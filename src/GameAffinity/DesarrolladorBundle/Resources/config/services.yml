@@ -1,0 +1,15 @@
+parameters:
+#    desarrollador.example.class: GameAffinity\DesarrolladorBundle\Example
+
+services:
+    sonata.gameaffinity.admin.desarrollador:
+        class: GameAffinity\DesarrolladorBundle\Admin\DesarrolladorAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: 'Desarrolladores', label: 'Desarrollador' }
+        arguments:
+            - null
+            - GameAffinity\DesarrolladorBundle\Entity\Desarrollador
+            - DesarrolladorBundle:Admin
+    
+    
+

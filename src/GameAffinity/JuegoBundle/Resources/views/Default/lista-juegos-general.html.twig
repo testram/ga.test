@@ -1,0 +1,25 @@
+{# empty Twig template #}
+{% extends 'JuegoBundle:Default:listado-global.html.twig' %}
+
+{% block seccion %}
+{% for juego in juegos %}
+<section class="item_juego"
+         <header>
+        <hgroup>
+            <h2><a href="{{ path( 'ficha', { 'juego' : juego.slug } ) }}">{{juego.nombre}}</a></h2>
+            <h3><a>{{juego.desarrollador.nombre}}</a></h3>
+        </hgroup>
+    </header>
+   <p>
+        {% set categorias =juego.categorias%}
+            {% for categoria in categorias %}
+            {{categoria.nombre | capitalize}}
+            {% if not loop.last %}
+        ,
+            {% endif %}
+            {% endfor %}
+    </p>
+</section>
+{% endfor %}
+
+{%endblock%}

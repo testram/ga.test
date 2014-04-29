@@ -1,0 +1,30 @@
+desarrollador:
+    pattern:  /
+    defaults: { _controller: "BackendBundle:Desarrollador:index" }
+
+desarrollador_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "BackendBundle:Desarrollador:show" }
+
+desarrollador_new:
+    pattern:  /new
+    defaults: { _controller: "BackendBundle:Desarrollador:new" }
+
+desarrollador_create:
+    pattern:  /create
+    defaults: { _controller: "BackendBundle:Desarrollador:create" }
+    requirements: { _method: post }
+
+desarrollador_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "BackendBundle:Desarrollador:edit" }
+
+desarrollador_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "BackendBundle:Desarrollador:update" }
+    requirements: { _method: post|put }
+
+desarrollador_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "BackendBundle:Desarrollador:delete" }
+    requirements: { _method: post|delete }

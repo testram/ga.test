@@ -1,0 +1,49 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Valoracion list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titulo</th>
+                <th>Calificacion</th>
+                <th>Opinion</th>
+                <th>Puntaje</th>
+                <th>Revisado</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('valoracion_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.titulo }}</td>
+                <td>{{ entity.calificacion }}</td>
+                <td>{{ entity.opinion }}</td>
+                <td>{{ entity.puntaje }}</td>
+                <td>{{ entity.revisado }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('valoracion_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('valoracion_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('valoracion_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

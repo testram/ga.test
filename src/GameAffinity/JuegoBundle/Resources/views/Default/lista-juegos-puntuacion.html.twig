@@ -1,0 +1,17 @@
+{# empty Twig template #}
+{% extends 'JuegoBundle:Default:listado-global.html.twig' %}
+{% block seccion %}
+
+{% for juego in juegos %}
+<section>
+    <span class="numeracion_item">
+        {{ loop.index}}        
+    </span>
+ {% include 'JuegoBundle:Default:includes/lista-detalle-juegos.html.twig' %}
+</section>
+<section class="puntuacion">
+    <span id="puntuacion">{{juego.puntuacion}}</span>
+    <span id="votos">{{juego.votos}}</span>
+</section>
+{% endfor %}
+{% endblock %}

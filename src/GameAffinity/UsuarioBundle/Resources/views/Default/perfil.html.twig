@@ -1,0 +1,31 @@
+{# empty Twig template #}
+{% extends "::frontend.html.twig" %}
+
+{% block article %}
+<h2>Perfil de <a href="{{path('usuario_perfil', {'username':usuario.username})}}">{{usuario.username}}</a></h2>
+
+{%for critica in criticas %}
+<section> 
+    {% set juego = critica.post %}
+    {% include 'JuegoBundle:Default:includes/lista-detalle-juegos.html.twig' %}    
+</section>
+<section>
+    {% set usuario = app.user %}
+    {% include 'JuegoBundle:Default:includes/critica.html.twig' %}
+</section>
+{%else%}
+<section>
+    {{usuario.username}} no ha reseñado ningún juego
+</section>
+{%endfor%}
+
+<section>
+    {{ render(controller('UsuarioBundle:Default:recientes')) }} 
+</section>
+{% endblock %}
+
+{% block aside %}
+
+<p><a href="{{path('usuario_logout')}}">Salir</a></p>
+
+{%endblock%}

@@ -1,0 +1,10 @@
+    <header>
+        <a href="{{path('ficha',{'juego':juego.slug})}}">
+            <img src="{{juego.foto}}">                
+            </img>
+        </a>
+        <hgroup>
+            <h2><a href="{{path('ficha',{'juego':juego.slug})}}">{{juego.nombre}}</a></h2>
+            <h3><a href="">{{ juego.desarrollador.nombre }}</a></h3>
+        </hgroup>
+    </header>

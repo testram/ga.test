@@ -1,0 +1,6 @@
+
+    
+    
+valoracion_form:
+    path: /tu_critica/{juego}
+    defaults: { _controller: ValoracionBundle:Default:ValoracionForm }

@@ -1,0 +1,28 @@
+{# empty Twig template #}
+{% if recientes %}
+<h2>Juegos consultados recientemente</h2>
+{%endif%}
+
+
+{% for reciente in recientes %}
+    <div class="recientes">
+        
+        
+        <a href="{{path('ficha',{'juego':reciente.slug})}}">
+            <fig>
+                <img src="{{reciente.foto}}" />
+            </fig>
+        </a>
+        <h4>
+            <a href="{{path('ficha', {'juego':reciente.slug})}}">{{reciente.nombre}}</a>
+        </h4>
+
+    </div>   
+{%else%}
+    <div>
+        
+    </div>
+    {%endfor%}
+
+
+

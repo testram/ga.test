@@ -1,0 +1,21 @@
+parameters:
+#    categoria.example.class: GameAffinity\CategoriaBundle\Example
+
+services:
+    sonata.gameaffinity.admin.categoria:
+        class: GameAffinity\CategoriaBundle\Admin\CategoriaAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: 'Categorias', label: Categorias }
+        arguments:
+            - null
+            - GameAffinity\CategoriaBundle\Entity\Categoria
+            - CategoriaBundle:Admin
+            
+        
+                
+    
+        
+   
+
+
+    

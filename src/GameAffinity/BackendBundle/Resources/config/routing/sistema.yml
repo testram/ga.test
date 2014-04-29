@@ -1,0 +1,30 @@
+sistema:
+    pattern:  /
+    defaults: { _controller: "BackendBundle:Sistema:index" }
+
+sistema_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "BackendBundle:Sistema:show" }
+
+sistema_new:
+    pattern:  /new
+    defaults: { _controller: "BackendBundle:Sistema:new" }
+
+sistema_create:
+    pattern:  /create
+    defaults: { _controller: "BackendBundle:Sistema:create" }
+    requirements: { _method: post }
+
+sistema_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "BackendBundle:Sistema:edit" }
+
+sistema_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "BackendBundle:Sistema:update" }
+    requirements: { _method: post|put }
+
+sistema_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "BackendBundle:Sistema:delete" }
+    requirements: { _method: post|delete }

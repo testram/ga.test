@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}{% endblock %} | GameAffinity</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        <div id="contenedor">
+           
+        {% block body %}{% endblock %}
+            <footer>
+                &copy; {{ 'now' | date('Y')}} - GameAffinity. Todos los derechos reservados
+                
+            </footer>
+        {% block javascripts %}{% endblock %}
+        </div>
+    </body>
+</html>

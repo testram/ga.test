@@ -1,0 +1,44 @@
+{# empty Twig template #}
+{% extends "base.html.twig" %}
+{%block javascripts%}
+<script src="{{ asset('js/jquery-2.1.0.js') }}"></script>
+<script src="{{ asset('bundles/redaccion/js/ajax-eliminar.js') }}" ></script>
+{%endblock%}
+
+{% block body %}
+<header>
+    <ul>
+        <li>
+            <a href="{{ path('portada') }}">
+                Tu portada 
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('crear_juego')}}">
+                Crear reseña
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('perfil' , { 'username' : app.user.username }) }}">
+            Modificar Perfil
+            </a>
+        </li>
+        
+        <li>
+            <a href="{{ path('redaccion_logout') }}">
+                Cerrar sesión
+            </a>
+        </li>
+    </ul>
+</header>
+
+{% block article %}
+{%endblock%}
+
+{%block aside%}
+{%endblock%}
+
+
+{%endblock%}
+
+

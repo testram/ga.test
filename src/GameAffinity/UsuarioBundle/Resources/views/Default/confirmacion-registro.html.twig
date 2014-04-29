@@ -1,0 +1,22 @@
+
+{# email de confirmacion #}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Email De Confirmación | Gameaffinity</title>
+    </head>
+
+    <body>
+        <p>
+
+            Hola {{usuario.username}}, por favor haz click en este botón para activar tu cuenta 
+            <a href="{{url('usuario_login' , {'cid':usuario.cid , 'email': usuario.email, 'c': usuario.codigoConfirmacion   })}}">Registrar mi Cuenta</a>
+
+
+        </p>
+
+        <footer>
+            &copy; {{'now' | date('Y')}} - Gameaffinity. Todos los derechos reservados
+        </footer>
+    </body>
+</html>

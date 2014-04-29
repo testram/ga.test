@@ -1,0 +1,30 @@
+redaccion:
+    pattern:  /
+    defaults: { _controller: "BackendBundle:Redaccion:index" }
+
+redaccion_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "BackendBundle:Redaccion:show" }
+
+redaccion_new:
+    pattern:  /new
+    defaults: { _controller: "BackendBundle:Redaccion:new" }
+
+redaccion_create:
+    pattern:  /create
+    defaults: { _controller: "BackendBundle:Redaccion:create" }
+    requirements: { _method: post }
+
+redaccion_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "BackendBundle:Redaccion:edit" }
+
+redaccion_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "BackendBundle:Redaccion:update" }
+    requirements: { _method: post|put }
+
+redaccion_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "BackendBundle:Redaccion:delete" }
+    requirements: { _method: post|delete }

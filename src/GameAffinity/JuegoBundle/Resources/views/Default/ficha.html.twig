@@ -1,0 +1,63 @@
+{# empty Twig template #}
+{% extends "JuegoBundle:Default:juego.html.twig" %}
+
+
+{% block ruta_ficha %}
+{{ path('ficha' , { 'juego' : juego.slug }) }}
+{% endblock %}
+
+{% block titulo %}
+{{ juego.nombre | capitalize }}
+{% endblock %}
+
+{% block ruta_criticas %}
+{{ path('review' , { 'juego': juego.slug }) }}
+{% endblock %}
+
+{% block contenido %}
+<section>
+    <div class="ficha-item-clave">Año</span>
+        <div class="ficha-item-valor">{{ juego.fechaLanzamiento | date('Y')}}</div>
+</section>
+<section>
+    <div class="ficha-item-clave">Desarrollador</div>
+    <div class="ficha-item-valor">{{juego.desarrollador.nombre}}</div>
+</section>
+<section>
+    <div class="ficha-item-clave">Genero</div>
+    <div class="ficha-item-valor">
+        {% for genero in juego.categorias%}
+         {{genero.nombre |capitalize}}
+        {% if not loop.last%}
+        .
+        {%endif%}
+        {%endfor%}
+
+    </div>
+</section>
+
+<section>
+    <div class="ficha-item-clave">Sistema</div>
+     {%for sistema in juego.sistemas%}
+    <div class="ficha-item-valor">{{sistema.nombre}}</div>
+    {%endfor%}
+</section>
+
+<section>
+    <p>
+        <a href="{{path('valoracion_form', { 'juego' : juego.slug})}}">
+            Añade tu critica
+        </a>
+    </p>
+</section>
+{% endblock %}
+{%block aside%}
+<section>
+    <img src="{{juego.foto}}"></img>
+</section>
+<section>
+    <p>{{juego.puntuacion | number_format}}</p>
+    <p>{{juego.votos| number_format }}</p>
+</section>
+{%endblock%}
+

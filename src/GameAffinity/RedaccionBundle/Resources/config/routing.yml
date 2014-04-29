@@ -1,0 +1,33 @@
+
+
+portada_redaccion:
+    path: /redactor/{redactor}
+    defaults: { _controller: RedaccionBundle:Default:portada }
+    
+perfil:
+    path: /perfil/{username}
+    defaults: { _controller: RedaccionBundle:Default:perfil }
+
+
+crear_juego:
+    path: /nuevo
+    defaults: { _controller: RedaccionBundle:Default:nuevo }
+
+editar_juego:
+    path: /editar/{slug}
+    defaults: { _controller: RedaccionBundle:Default:editar }
+
+eliminar_juego:
+    path: /eliminar
+    defaults: { _controller: RedaccionBundle:Default:eliminar }
+    
+redaccion_login:
+    path: /login
+    defaults: { _controller: RedaccionBundle:Default:login }
+
+redaccion_login_check:
+    path: /login_check
+
+redaccion_logout:
+    path: /logout
+    

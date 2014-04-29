@@ -1,0 +1,12 @@
+parameters:
+#    redaccion.example.class: GameAffinity\RedaccionBundle\Example
+
+services:
+    sonata.gameaffinity.admin.redaccion:
+        class: GameAffinity\RedaccionBundle\Admin\RedaccionAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: 'Redaccion', label: 'Usuario' }
+        arguments:
+            - null
+            - GameAffinity\RedaccionBundle\Entity\Redaccion
+            - RedaccionBundle:Admin

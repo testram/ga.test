@@ -1,0 +1,27 @@
+{# empty Twig template #}
+{%extends "::frontend.html.twig" %}
+
+
+{% block article %}
+<div class="error">
+    {% if error %}
+    {{ error.message }}
+    {%endif%}
+</div>
+
+<form method ="POST" action="{{ path('redaccion_login_check') }}" >
+    <div>
+    username:
+    <input type="text" name="_username" value="{{last_username}}"/>
+    </div>
+    
+    <div>
+        password:
+        <input type="password" name="_password" />
+    </div>
+    <div>
+        <input type="submit" value="Entrar" />
+    </div>
+
+</form>
+{% endblock %}

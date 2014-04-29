@@ -1,0 +1,7 @@
+parameters:
+#    valoracion.example.class: GameAffinity\ValoracionBundle\Example
+
+services:
+#    valoracion.example:
+#        class: %valoracion.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

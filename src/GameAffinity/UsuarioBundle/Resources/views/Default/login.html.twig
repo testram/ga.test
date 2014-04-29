@@ -1,0 +1,20 @@
+{# empty Twig template #}
+{% extends "::frontend.html.twig" %}
+
+{% block article %}
+<div class="error">
+    {% if error %}
+    {{ error.message }}
+    {%endif%}
+</div>
+
+
+
+<form method="POST" action="{{ path('usuario_login_check') }}" >
+
+    nombre: <input type="text" placeholder="Escriba el nombre" name="_username" value="{{ last_username }}"/>
+    password: <input type="password" name="_password">
+    
+    <input type="submit" value="log in" />
+</form>
+{% endblock %}

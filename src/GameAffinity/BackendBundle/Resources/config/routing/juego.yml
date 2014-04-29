@@ -1,0 +1,30 @@
+juego:
+    pattern:  /
+    defaults: { _controller: "BackendBundle:Juego:index" }
+
+juego_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "BackendBundle:Juego:show" }
+
+juego_new:
+    pattern:  /new
+    defaults: { _controller: "BackendBundle:Juego:new" }
+
+juego_create:
+    pattern:  /create
+    defaults: { _controller: "BackendBundle:Juego:create" }
+    requirements: { _method: post }
+
+juego_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "BackendBundle:Juego:edit" }
+
+juego_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "BackendBundle:Juego:update" }
+    requirements: { _method: post|put }
+
+juego_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "BackendBundle:Juego:delete" }
+    requirements: { _method: post|delete }

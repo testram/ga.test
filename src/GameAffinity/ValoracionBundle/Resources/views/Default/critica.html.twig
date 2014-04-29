@@ -1,0 +1,27 @@
+{# empty Twig template #}
+{% extends "::frontend.html.twig" %}
+
+{% block  article %}
+
+{% include 'JuegoBundle:Default:includes/lista-detalle-juegos.html.twig' %}
+
+{{form_start(form) }}
+<div>
+    {{form_label(form.calificacion)}}
+    {{form_widget(form.calificacion)}}
+    {{form_errors(form.calificacion)}}
+</div>
+<div>
+    {{form_label(form.titulo)}}
+    {{form_widget(form.titulo)}}
+    {{form_errors(form.titulo)}}
+</div>
+<div>
+    {{form_label(form.titulo, 'Tu Critica' )}}
+    {{form_widget(form.titulo)}}
+    {{form_errors(form.titulo)}}
+</div>
+
+{{form_end(form)}}
+
+{% endblock %}

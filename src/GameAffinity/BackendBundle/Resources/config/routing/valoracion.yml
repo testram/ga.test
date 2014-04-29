@@ -1,0 +1,30 @@
+valoracion:
+    pattern:  /
+    defaults: { _controller: "ValoracionBundle:Valoracion:index" }
+
+valoracion_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "ValoracionBundle:Valoracion:show" }
+
+valoracion_new:
+    pattern:  /new
+    defaults: { _controller: "ValoracionBundle:Valoracion:new" }
+
+valoracion_create:
+    pattern:  /create
+    defaults: { _controller: "ValoracionBundle:Valoracion:create" }
+    requirements: { _method: post }
+
+valoracion_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "ValoracionBundle:Valoracion:edit" }
+
+valoracion_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "ValoracionBundle:Valoracion:update" }
+    requirements: { _method: post|put }
+
+valoracion_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "ValoracionBundle:Valoracion:delete" }
+    requirements: { _method: post|delete }

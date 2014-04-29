@@ -1,0 +1,35 @@
+backend_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: BackendBundle:Default:index }
+    
+BackendCategoria:
+    resource: "@BackendBundle/Resources/config/routing/categoria.yml"
+    prefix: /categoria
+    
+
+BackendDesarrollador:
+    resource: "@BackendBundle/Resources/config/routing/desarrollador.yml"
+    prefix: /desarrollador
+
+BackendJuego:
+    resource: "@BackendBundle/Resources/config/routing/juego.yml"
+    prefix: /juego
+    
+BackendRedaccion:
+    resource: "@BackendBundle/Resources/config/routing/redaccion.yml"
+    prefix: /redaccion
+    
+BackendSistema:
+    resource: "@BackendBundle/Resources/config/routing/sistema.yml"
+    prefix: /sistema
+    
+BackendUsuario:
+    resource: "@BackendBundle/Resources/config/routing/usuario.yml"
+    prefix: /usuario
+    
+BackendValoracion:
+    resource: "@BackendBundle/Resources/config/routing/valoracion.yml"
+    prefix: /valoracion
+
+
+

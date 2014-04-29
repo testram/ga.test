@@ -1,0 +1,81 @@
+security:
+    acl:
+        connection: default 
+   
+    role_hierarchy:
+        ROLE_REDACCION: ROLE_USUARIO
+        ROLE_ADMIN: ROLE_REDACCION
+        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+
+    providers:
+                   
+            
+       usuarios:
+           entity: { class: GameAffinity\UsuarioBundle\Entity\Usuario, property: username } 
+    
+       redactores:
+           entity: { class: GameAffinity\RedaccionBundle\Entity\Redaccion, property: username }
+           
+       administradores:
+           memory:
+               users:
+                   admin: { password: dios, roles: 'ROLE_ADMIN'}
+                   
+                   
+           
+    encoders:
+        GameAffinity\RedaccionBundle\Entity\Redaccion: { algorithm: sha512, iterations: 5 }  
+        GameAffinity\UsuarioBundle\Entity\Usuario: { algorithm: sha512, iterations: 5 }             
+        Symfony\Component\Security\Core\User\User: plaintext
+            
+    firewalls:
+        
+        backend:
+            pattern: ^/backend/*
+            provider: administradores
+            http_basic: ~
+          
+                
+               
+        redaccion:
+            pattern: ^/redaccion/*
+            provider: redactores
+            anonymous: ~
+            form_login:
+                login_path: redaccion_login
+                check_path: redaccion_login_check
+            logout:
+                path: redaccion_logout
+            context: redactor_context
+          
+       
+        frontend:
+            pattern: ^/*            
+            anonymous: ~
+            form_login:
+                login_path: usuario_login
+                check_path: usuario_login_check
+            logout:
+                path: usuario_logout
+            context: redactor_context
+           
+        
+            
+                
+        
+
+    access_control:
+        # usuarios estandar
+        - { path: ^/usuario/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/usuario/registro, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/usuario/perfil/*, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/usuario/*, roles: ROLE_USUARIO }
+        - { path: ^/valoracion/*, roles: [ROLE_USUARIO, ROLE_REDACCION] }
+        
+        # redaccion
+        - { path: ^/redaccion/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/redaccion/redactor/*, roles: [ROLE_USUARIO, ROLE_REDACCION, IS_AUTHENTICATED_ANONYMOUSLY] }
+        - { path: ^/redaccion/*, roles: ROLE_REDACCION }
+        # backend
+        - { path: ^/backend/*, roles: ROLE_ADMIN }
+

@@ -1,0 +1,7 @@
+parameters:
+#    sistema.example.class: GameAffinity\SistemaBundle\Example
+
+services:
+#    sistema.example:
+#        class: %sistema.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

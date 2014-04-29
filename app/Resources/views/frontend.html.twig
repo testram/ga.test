@@ -1,0 +1,110 @@
+
+{% extends '::base.html.twig' %}
+{% block stylesheets %}
+
+{% endblock %}
+{% block javascripts %}
+
+<script src="{{ asset('js/jquery-2.1.0.js') }}"></script>
+<script src="{{ asset('bundles/juego/js/ajax-search.js') }}"></script>
+{% endblock %}
+  {% block body %}
+<header id="principal">
+
+    <div id="logo">
+        <a>
+            <figure>
+                <img src=""></img>
+            </figure>
+        </a>
+    </div>
+    <div style="position:relative;">
+        <form  id="ajax-search-form"  action="{{ path('post') }}"  method="POST">
+
+            <input id="buscador" data-url="{{ url('ajax_search')}}" required type="text" name="juego" placeholder="Escriba el nombre del juego" />
+            <input type="submit">
+
+        </form>
+        <div id="resultado" style="background-color: grey; position: absolute; z-index: 3;">
+
+        </div>
+
+    </div>
+
+
+    {% block loginRegistro %}
+    {% if is_granted('ROLE_USUARIO') %}
+    <div id="logueado">
+        {% for mensaje in app.session.flashbag.get('info') %}
+        <p class="info">
+{{mensaje}}
+        </p>
+        {%endfor%}
+
+
+        <p>Bienvenido 
+            <a href="{{ path('usuario_perfil', {'username' : app.user.username } ) }}">
+{{ app.user.username }} 
+            </a>
+        </p>
+    </div>
+    {%else%}
+    <div id="login-registro">
+        <p>
+            <a href="{{ path('usuario_login') }}">
+                Iniciar Sesion
+            </a>
+            |
+
+            <a href="{{ path('usuario_registro') }}">
+                Registrarse
+            </a>
+            </a>
+
+        </p>
+    </div>
+
+
+    {%endif%}
+    {% endblock %}
+
+
+
+</header>
+
+<nav>
+    <ul>
+        <li>
+            ##TOP GA##              
+        </li>
+        <li>
+            ##PC
+        </li>
+        <li>
+            ##360##
+        </li>
+        <li>
+            ##PS3##
+        </li>
+    </ul>
+</nav>
+
+<article>
+      {% block article %}
+      {% endblock %}
+
+</article>
+
+<aside>
+      {% block aside %}
+       {%  if is_granted('ROLE_USUARIO') %}
+    <p>
+        <a href="{{path('usuario_logout')}}">
+            Salir
+        </a>
+    </p>
+      {% endif %}
+</aside>
+{%endblock%}
+  {% endblock %}
+

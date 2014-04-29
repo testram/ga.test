@@ -1,0 +1,35 @@
+
+{% extends '::frontend.html.twig' %}
+{% block article %}
+<section class="juegos">
+    <h2>
+        Juegos Nuevos
+    </h2>
+    <p>
+    <table border=1 id="juegos_nuevos">
+        <tr>
+        {% for juego in juegosNuevos %}
+            <td>
+                <article id="juego">
+                    <a href="{{ path('ficha', {'juego': juego.slug }) }}">
+                        <span>{{juego.nombre}}</span>
+                    </a>
+                    <a href="{{ path('ficha', {'juego': juego.slug }) }}">
+                        <img src="{{juego.nombre}}" alt="{{juego.slug}}">
+                        </img>
+                    </a>
+                </article>
+            </td>
+        {% if loop.index is divisibleby(3) %}
+        </tr><tr>
+            {% endif %}
+        {% endfor %}
+        </tr>
+    </table>
+</p>
+<a href="{{path('lista_total_estrenos', {'tipo_lista': 'general'})}}">Ver mas ></a>
+</section>
+
+
+
+{% endblock %}

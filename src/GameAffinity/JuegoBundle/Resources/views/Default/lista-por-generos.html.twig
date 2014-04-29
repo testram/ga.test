@@ -1,0 +1,37 @@
+{# empty Twig template #}
+{% extends '::lista-juegos-global.html.twig' %}
+
+{% block seccion %}
+{{ generos | join(' | '}}
+
+
+{% for juego in accion%}
+<section class="grupo_por_genero">
+    <h2>{{juego.categoria.nombre}}</h2>
+    {% include 'JuegoBundle:Default:includes:lista-detalle-juego.html.twig' %}
+</section>
+{%endfor%}
+
+{% for juego in plataformas%}
+<section class="grupo_por_genero">
+    <h2>{{juego.categoria.nombre}}</h2>
+    {% include 'JuegoBundle:Default:includes:lista-detalle-juego.html.twig' %}
+</section>
+{%endfor%}
+
+{% for juego in rpg%}
+<section class="grupo_por_genero">
+    <h2>{{juego.categoria.nombre}}</h2>
+    {% include 'JuegoBundle:Default:includes:lista-detalle-juego.html.twig' %}
+</section>
+{%endfor%}
+
+{% for juego in conduccion%}
+<section class="grupo_por_genero">
+    <h2>{{juego.categoria.nombre}}</h2>
+    {% include 'JuegoBundle:Default:includes:lista-detalle-juego.html.twig' %}
+</section>
+{%endfor%}
+
+
+{%endblock%}

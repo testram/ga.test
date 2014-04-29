@@ -1,0 +1,42 @@
+valoracion:
+    resource: "@ValoracionBundle/Resources/config/routing.yml"
+    prefix:   /valoracion
+
+backend:
+    resource: "@BackendBundle/Resources/config/routing.yml"
+    prefix:   /backend
+
+
+
+
+
+desarrollador:
+    resource: "@DesarrolladorBundle/Resources/config/routing.yml"
+    prefix:   /desarrollador
+
+redaccion:
+    resource: "@RedaccionBundle/Resources/config/routing.yml"
+    prefix:   /redaccion
+
+
+
+sistema:
+    resource: "@SistemaBundle/Resources/config/routing.yml"
+    prefix:   /sistema
+
+categoria:
+    resource: "@CategoriaBundle/Resources/config/routing.yml"
+    prefix:   /categoria
+
+
+
+usuario:
+    resource: "@UsuarioBundle/Resources/config/routing.yml"
+    prefix:   /usuario
+
+juego:
+    resource: "@JuegoBundle/Resources/config/routing.yml"
+    prefix:   /
+    
+
+

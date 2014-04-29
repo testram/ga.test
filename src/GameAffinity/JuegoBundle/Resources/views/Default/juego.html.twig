@@ -1,0 +1,35 @@
+{# empty Twig template #}
+{% extends "::frontend.html.twig" %}
+
+{%block article %}
+<section class="titulo_juego_review">
+    <h2>
+        <a href="{% block ruta_ficha %}{% endblock %}">
+        {% block titulo %}{% endblock %}
+        </a>
+    </h2>
+</section>
+
+<section class="secciones">
+    <nav>
+        <ul>
+            <li>
+                <a href="{{ block('ruta_ficha')}}">
+                    Ficha
+                </a>
+            </li>
+            <li>
+                 <a href="{% block ruta_criticas %}{% endblock %}">
+                    Criticas
+                </a>
+                
+            </li>
+        </ul>
+    </nav>
+</section>
+
+
+{%block contenido%}
+{%endblock%}
+
+{%endblock%}

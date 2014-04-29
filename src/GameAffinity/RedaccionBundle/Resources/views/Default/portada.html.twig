@@ -1,0 +1,43 @@
+{# empty Twig template #}
+{% extends is_granted('ROLE_REDACCION') ? '::redaccion.html.twig' : '::frontend.html.twig' %}
+
+{% block article %}
+<h2>Perfil de 
+    <a href="{{ path('portada_redaccion' , {'redactor' : redactor.username }) }}">
+{{ redactor.username }}
+    </a>
+</h2>
+
+{%for juego in juegos%}
+<section>
+    {%if is_granted('ROLE_REDACCION') %}
+    
+    {% include 'JuegoBundle:Default:includes/lista-detalle-juegos.html.twig' %} 
+    <div>
+        <a href="{{ path('editar_juego' , { 'slug' : juego.slug } ) }}">
+            Editar
+        </a>
+        <a class="ajax-eliminar" data-slug="{{juego.slug}}" data-url="{{ url('eliminar_juego') }}">
+            Eliminar
+        </a>
+    </div>
+   
+    {%else%}
+    {% include 'JuegoBundle:Default:includes/lista-detalle-juegos.html.twig' %} 
+    {%endif%}
+</section>
+{%else%}
+<section>
+
+    <p>
+    {{ is_granted('ROLE_REDACCION') ? 'No has reseñado ningun juego' :  redactor.username ~ ' no ha reseñado ningun juego' }}
+    </p>
+</section>
+{%endfor%}
+{% if is_granted('ROLE_REDACCION') %}
+<a href=" {{path('perfil' , { 'username' : app.user.username} )}}">
+    Gestionar Mi perfil
+</a>
+{% endif %}
+
+{% endblock %}

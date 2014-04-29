@@ -1,0 +1,34 @@
+
+portada:
+    pattern: /
+    defaults: { _controller: JuegoBundle:Default:portada}
+       
+    
+    
+lista_total_estrenos:
+    pattern: /juegos/estrenos/listado/{tipo_lista}
+    defaults: { _controller: JuegoBundle:Default:listaTotalEstrenos }
+    
+ficha:
+    pattern: /juegos/{juego}
+    defaults: { _controller: JuegoBundle:Default:ficha }
+    
+post:
+    pattern: /juegos/busqueda/form
+    defaults: { _controller: JuegoBundle:Default:fichapost }
+    
+   
+review:
+    pattern: /juegos/reviews/{juego}
+    defaults: { _controller: JuegoBundle:Default:review }
+    
+ajax_search:
+    pattern: /juegos/ajax/search
+    defaults: { _controller: JuegoBundle:Default:ajaxSearch }
+    
+
+
+
+    
+
+    

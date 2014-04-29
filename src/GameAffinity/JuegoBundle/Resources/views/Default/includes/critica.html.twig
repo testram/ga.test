@@ -1,0 +1,12 @@
+{# empty Twig template #}
+<h5>
+    <a href="{{path('usuario_perfil', { 'username' : usuario.username })}}">
+        {{usuario.username}}
+    </a>
+</h5>
+<h4>{{critica.puntaje | number_format}}</h4>
+<h2>{{critica.titulo | capitalize }}</h2>
+<p>
+    {{critica.opinion | capitalize }}
+</p>
+
