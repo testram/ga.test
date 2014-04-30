@@ -5,11 +5,8 @@
         <group>
             <file>file:/C:/xampp/htdocs/Proyectos/GameAffinity/src/GameAffinity/JuegoBundle/Form/Foto/FotoType.php</file>
             <file>file:/C:/xampp/htdocs/Proyectos/GameAffinity/src/GameAffinity/JuegoBundle/Entity/Foto.php</file>
-            <file>file:/C:/xampp/htdocs/Proyectos/GameAffinity/src/GameAffinity/JuegoBundle/Controller/DefaultController.php</file>
-            <file>file:/C:/xampp/htdocs/Proyectos/GameAffinity/src/GameAffinity/RedaccionBundle/Controller/DefaultController.php</file>
             <file>file:/C:/xampp/htdocs/Proyectos/GameAffinity/src/GameAffinity/RedaccionBundle/Resources/views/Default/form.html.twig</file>
             <file>file:/C:/xampp/htdocs/Proyectos/GameAffinity/src/GameAffinity/JuegoBundle/Form/Redaccion/JuegoType.php</file>
-            <file>file:/C:/xampp/htdocs/Proyectos/GameAffinity/app/bootstrap.php.cache</file>
             <file>file:/C:/xampp/htdocs/Proyectos/GameAffinity/src/GameAffinity/JuegoBundle/Entity/Juego.php</file>
         </group>
     </open-files>
