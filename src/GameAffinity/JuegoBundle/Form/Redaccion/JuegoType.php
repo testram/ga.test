@@ -5,7 +5,7 @@ namespace GameAffinity\JuegoBundle\Form\Redaccion;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use GameAffinity\JuegoBundle\Form\Foto\FotoType;///comentario nuevo 30 abril
+use GameAffinity\JuegoBundle\Form\Foto\FotoType;///comentario nuevo 30 abril/////
 //use GameAffinity\JuegoBundle\Entity\Foto;
 
 class JuegoType extends AbstractType {
